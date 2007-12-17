@@ -16,7 +16,6 @@ Url:		http://search.cpan.org/dist/%{module}
 BuildRequires:	perl-devel >= 5.005
 %endif
 BuildRequires:	perl(IO::Socket)
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
 
 %description
