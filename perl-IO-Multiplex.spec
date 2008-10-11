@@ -1,7 +1,7 @@
 %define	module	IO-Multiplex
 %define	name	perl-%{module}
-%define	version	1.09
-%define	release	%mkrel 3
+%define	version	1.10
+%define	release	%mkrel 1
 %define	pdir	IO
 
 Summary:	Manage IO on many file handles
