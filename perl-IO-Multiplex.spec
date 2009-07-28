@@ -1,23 +1,22 @@
-%define	module	IO-Multiplex
-%define	name	perl-%{module}
-%define	version	1.10
-%define	release	%mkrel 1
-%define	pdir	IO
+%define	upstream_name	 IO-Multiplex
+%define	upstream_version 1.10
+
+Name:		perl-%{upstream_name}
+Version:	%perl_convert_version %{upstream_version}
+Release:	%mkrel 1
 
 Summary:	Manage IO on many file handles
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
-License:	GPL or Artistic
+License:	GPL+ or Artistic
 Group:		Development/Perl
-Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{module}-%{version}.tar.bz2
-Url:		http://search.cpan.org/dist/%{module}
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/IO/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel >= 5.005
 %endif
 BuildRequires:	perl(IO::Socket)
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 IO::Multiplex is designed to take the effort out of managing
@@ -26,9 +25,8 @@ the C<select> system call.  In addition to maintaining the C<select>
 loop, it buffers all input and output to/from the file handles.  It
 can also accept incoming connections on one or more listen sockets.
 
-
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -47,6 +45,5 @@ rm -rf %{buildroot}
 %files
 %defattr(644,root,root,755)
 %doc Changes README TODO
-%{perl_vendorlib}/%{pdir}
+%{perl_vendorlib}/IO
 %{_mandir}/man*/*
-
