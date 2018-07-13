@@ -10,6 +10,7 @@ Group:		Development/Perl
 Url:		http://search.cpan.org/dist/%{modname}
 Source0:	http://www.cpan.org/modules/by-module/IO/%{modname}-%{modver}.tar.bz2
 BuildArch:	noarch
+BuildRequires:	perl(Test)
 BuildRequires:	perl-devel
 BuildRequires:	perl(IO::Socket)
 
